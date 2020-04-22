@@ -383,24 +383,6 @@ namespace Netch.Forms
 
             InitProfile();
 
-            // 自动检测延迟
-            Task.Run(() =>
-            {
-                while (true)
-                {
-                    if (State == Models.State.Waiting || State == Models.State.Stopped)
-                    {
-                        TestServer();
-
-                        Thread.Sleep(10000);
-                    }
-                    else
-                    {
-                        Thread.Sleep(200);
-                    }
-                }
-            });
-
             // 打开软件时启动加速，产生开始按钮点击事件
             if (Global.Settings.StartWhenOpened)
             {
